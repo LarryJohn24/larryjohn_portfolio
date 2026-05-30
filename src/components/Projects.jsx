@@ -21,7 +21,7 @@ const allProjects = {
     { id: 6, title: 'Escape from Salamangkero', desc: 'A spin off game of "curse of biringan" card game for Game development subject.', tags: ['unity'], image: escape, role: 'Game Designer' },
   ],
   multimedia: [
-    { id: 7, title: 'Jaeger Car Logo', desc: 'A concept logo for a fictional car brand', tags: ['canva'], image: jaeger },
+    { id: 7, title: 'Jaeger Gun Logo', desc: 'A concept logo for a fictional car brand', tags: ['canva'], image: jaeger },
     { id: 8, title: 'Minimalist Cafe poster', desc: 'A poster for a minimalist cafe', tags: ['adobe photoshop'], image: minimalist },
     { id: 9, title: 'Grunge style poster', desc: 'A grunge-style thriller poster', tags: ['adobe photoshop'], image: grunge },
   ],
