@@ -96,6 +96,7 @@ const WindowPreview = ({ project, onClose, darkMode }) => {
             <img
               src={project.image}
               alt={project.title}
+              loading="lazy"
               className="w-full object-contain"
             />
           </div>
@@ -237,6 +238,7 @@ const Projects = ({ darkMode }) => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     {/* Hover overlay with preview button */}

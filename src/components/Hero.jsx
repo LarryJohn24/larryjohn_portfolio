@@ -14,7 +14,7 @@ const Hero = ({ darkMode }) => {
     { icon: github, alt: 'GitHub', href: 'https://github.com/LarryJohn24' },
     { icon: tiktok, alt: 'TikTok', href: 'https://www.tiktok.com/@haisesasaki194' },
     { icon: instagram, alt: 'Instagram', href: 'https://www.instagram.com/larry_john09/' },
-    { icon: discord, alt: 'Discord', href: 'https://www.discord.com/users/1260237036372103258'},
+    { icon: discord, alt: 'Discord', href: 'https://www.discord.com/users/1260237036372103258' },
   ];
 
   const darkTheme = {
@@ -41,7 +41,7 @@ const Hero = ({ darkMode }) => {
           flex-col lg:flex-row items-center justify-center gap-8 mt-14 lg:mt-0">
 
           {/* content */}
-          <div className="lg:w-1/2 w-full flex flex-col items-center lg:items-start text-center lg:text-left mb-4 lg:mb-0 ">
+          <div className="lg:w-1/2 w-full flex flex-col items-center lg:items-start text-center lg:text-left mb-4 lg:mb-0">
 
             {/* Social Icons */}
             <motion.div
@@ -66,6 +66,7 @@ const Hero = ({ darkMode }) => {
                   <img
                     src={item.icon}
                     alt={item.alt}
+                    loading="lazy"
                     className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${
                       darkMode ? '' : 'brightness-75'
                     }`}

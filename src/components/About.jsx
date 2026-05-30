@@ -9,6 +9,7 @@ import cert4 from '../assets/cert4.pdf';
 
 const About = ({ darkMode }) => {
   const [openCard, setOpenCard] = useState(null);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const darkTheme = {
     textPrimary: 'text-white',
@@ -129,21 +130,23 @@ const About = ({ darkMode }) => {
             className="lg:w-2/5 w-full flex justify-center"
           >
             <div className="relative w-72 sm:w-80 lg:w-96">
+              {/* Glow disabled on mobile to save GPU */}
               <motion.div
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                animate={isMobile ? {} : { opacity: [0.3, 0.6, 0.3] }}
+                transition={isMobile ? {} : { duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 className={`absolute inset-0 rounded-2xl blur-2xl -z-10
                   ${darkMode ? 'bg-red-700/40' : 'bg-red-400/30'}`}
               />
               <motion.div
-                animate={{ opacity: [0.6, 0.2, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                animate={isMobile ? {} : { opacity: [0.6, 0.2, 0.6] }}
+                transition={isMobile ? {} : { duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 className={`absolute inset-0 rounded-2xl blur-3xl -z-10 scale-110
                   ${darkMode ? 'bg-red-900/30' : 'bg-rose-300/20'}`}
               />
               <img
                 src={pfp}
                 alt="Larry John"
+                loading="lazy"
                 className="w-full h-auto rounded-2xl object-cover shadow-2xl"
               />
             </div>
@@ -167,7 +170,6 @@ const About = ({ darkMode }) => {
               </p>
             </div>
 
-            
             {/* Divider */}
             <div className={`h-px w-full ${theme.divider}`} />
 

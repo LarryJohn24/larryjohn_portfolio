@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 const AnimatedBackground = ({ darkMode }) => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // Use inline rgba so colors switch instantly without SVG gradient ID issues
   const outerFill = darkMode
     ? 'rgba(127,29,29,0.55)'
     : 'rgba(252,165,165,0.45)';
@@ -35,7 +35,7 @@ const AnimatedBackground = ({ darkMode }) => {
         {/* Outer wide wave */}
         <motion.path
           fill={outerFill}
-          animate={{
+          animate={isMobile ? {} : {
             d: [
               "M 0 600 Q 200 450 480 550 Q 760 650 1000 480 Q 1240 310 1440 500 L 1440 900 L 0 900 Z",
               "M 0 550 Q 200 700 480 580 Q 760 460 1000 600 Q 1240 740 1440 560 L 1440 900 L 0 900 Z",
@@ -43,13 +43,14 @@ const AnimatedBackground = ({ darkMode }) => {
               "M 0 600 Q 200 450 480 550 Q 760 650 1000 480 Q 1240 310 1440 500 L 1440 900 L 0 900 Z",
             ],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          transition={isMobile ? {} : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          d="M 0 600 Q 200 450 480 550 Q 760 650 1000 480 Q 1240 310 1440 500 L 1440 900 L 0 900 Z"
         />
 
         {/* Inner wave on top */}
         <motion.path
           fill={innerFill}
-          animate={{
+          animate={isMobile ? {} : {
             d: [
               "M 0 700 Q 300 580 560 680 Q 820 780 1100 620 Q 1280 520 1440 660 L 1440 900 L 0 900 Z",
               "M 0 680 Q 300 800 560 700 Q 820 600 1100 750 Q 1280 850 1440 700 L 1440 900 L 0 900 Z",
@@ -57,7 +58,8 @@ const AnimatedBackground = ({ darkMode }) => {
               "M 0 700 Q 300 580 560 680 Q 820 780 1100 620 Q 1280 520 1440 660 L 1440 900 L 0 900 Z",
             ],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut'}}
+          transition={isMobile ? {} : { duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          d="M 0 700 Q 300 580 560 680 Q 820 780 1100 620 Q 1280 520 1440 660 L 1440 900 L 0 900 Z"
         />
 
         {/* Top accent stroke */}
@@ -65,29 +67,30 @@ const AnimatedBackground = ({ darkMode }) => {
           fill="none"
           stroke={strokeColor}
           strokeWidth="2"
-          animate={{
+          animate={isMobile ? {} : {
             d: [
               "M -100 350 Q 300 180 600 320 Q 900 460 1200 280 Q 1380 180 1540 320",
               "M -100 280 Q 300 450 600 260 Q 900 70 1200 340 Q 1380 520 1540 260",
               "M -100 350 Q 300 180 600 320 Q 900 460 1200 280 Q 1380 180 1540 320",
             ],
           }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          transition={isMobile ? {} : { duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          d="M -100 350 Q 300 180 600 320 Q 900 460 1200 280 Q 1380 180 1540 320"
         />
       </svg>
 
       {/* Ambient glow top-left */}
       <motion.div
-        animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.15, 1] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        animate={isMobile ? {} : { opacity: [0.2, 0.4, 0.2], scale: [1, 1.15, 1] }}
+        transition={isMobile ? {} : { duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl"
         style={{ backgroundColor: darkMode ? 'rgba(127,29,29,0.25)' : 'rgba(252,165,165,0.2)' }}
       />
 
       {/* Ambient glow bottom-right */}
       <motion.div
-        animate={{ opacity: [0.4, 0.2, 0.4], scale: [1.15, 1, 1.15] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        animate={isMobile ? {} : { opacity: [0.4, 0.2, 0.4], scale: [1.15, 1, 1.15] }}
+        transition={isMobile ? {} : { duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl"
         style={{ backgroundColor: darkMode ? 'rgba(69,10,10,0.4)' : 'rgba(254,202,202,0.3)' }}
       />
